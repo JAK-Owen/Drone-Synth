@@ -12,9 +12,27 @@
 </div>
 
 <script>
-var synth = new Tone.PolySynth().toMaster();
+
+const ampEnv = new Tone.AmplitudeEnvelope({
+		attack: 1.1,
+		decay: 1.0,
+		sustain: 1.0,
+		release: 0.8
+	}).toDestination();
+
+  const reverb = new Tone.Freeverb(0.6).toDestination();
+
+  const delay = new Tone.FeedbackDelay("1n", 0.2).toDestination();
+
+
+
+const synth = new Tone.Synth().connect(ampEnv).toDestination();
 var notes = ['C','D','E','F','G','A','B'];
 var html = "";
+
+
+
+
 
 for (var octave = 0; octave < 2; octave++)
 {
@@ -40,7 +58,8 @@ function noteDown(elem, isSharp) {
   var note = elem.dataset.note;
   //alert(note);
 
-  synth.triggerAttackRelease(note, "4n");
+  synth.triggerAttackRelease(note, "16n");
+
   event.stopPropagation()
 }
 </script>

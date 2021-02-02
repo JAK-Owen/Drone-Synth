@@ -1,6 +1,13 @@
+body {
+  background-color: black;
+
+}
+
+
 #container {
   position:absolute;
   height:200px;
+  width: auto;
   border:5px solid black;
   top:calc(50% - 100px);
   left:calc(50% - 350px);
