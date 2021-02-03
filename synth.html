@@ -87,17 +87,9 @@ var gain = new Nexus.Dial("#gain",{
   'size': [75,75],
   'interaction': 'vertical',
   'mode': 'absolute',
-  'min': 0,
-  'max': 1,
-  'step': 0,
-  'value': 0
+
 })
 
-
-
-// power.on('change',function(v) {
-// 	v ? synth.start() : synth.stop();
-// });
 
  gain.on('change',function(v) {
 	volume.volume.rampTo(v,.1)
