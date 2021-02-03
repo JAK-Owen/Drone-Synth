@@ -11,12 +11,17 @@
 <body>
 <div id='container'></div>
 
- <div onchange="Volume()" id="dial-volume"></div>
+
+<div id="gain"><div>
+
+
 
 
 <script>
 
  // Synth_________________________________________
+
+ var volume = new Tone.Volume(-Infinity).toMaster();
 
 const synth = new Tone.PolySynth(Tone.MonoSynth, {
 			volume: -8,
@@ -37,15 +42,8 @@ const synth = new Tone.PolySynth(Tone.MonoSynth, {
 				baseFrequency: 300,
 				octaves: 4
 			},
-		}).toDestination();
+		}).connect(volume);
 
-//Volume__________________________________________________
-
-    function Volume() {
-      synth.volume = 0;
-      alert('Linked');
-
-    }
 
 // Keyboard____________________________________________
 
@@ -83,19 +81,38 @@ function noteDown(elem, isSharp) {
 
 // Controls___________________________________________
 
-var dial = new Nexus.Dial('#dial-volume',{
+
+var gain = new Nexus.Dial("#gain",{
+
   'size': [75,75],
   'interaction': 'vertical',
-  'mode': 'absolute', 
+  'mode': 'absolute',
   'min': 0,
   'max': 1,
   'step': 0,
-  'value': 0.5
+  'value': 0
 })
 
- dial.colorize("accent","white")
- dial.colorize("fill","#333")
- document.body.style.backgroundColor = "#000"
+
+
+// power.on('change',function(v) {
+// 	v ? synth.start() : synth.stop();
+// });
+
+ gain.on('change',function(v) {
+	volume.volume.rampTo(v,.1)
+});
+gain.min = -100;
+gain.max = 0;
+gain.value = -10;
+gain.colorize("accent","white")
+gain.colorize("fill","#333")
+document.body.style.backgroundColor = "#000"
+
+
+
+
+
 
 </script>
 
