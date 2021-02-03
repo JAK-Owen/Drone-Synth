@@ -11,9 +11,12 @@
 <body>
 <div id='container'></div>
 
- <div id="dial-filterCut"></div>
+ <div onchange="Volume()" id="dial-volume"></div>
+
 
 <script>
+
+ // Synth_________________________________________
 
 const synth = new Tone.PolySynth(Tone.MonoSynth, {
 			volume: -8,
@@ -27,14 +30,24 @@ const synth = new Tone.PolySynth(Tone.MonoSynth, {
 				release: 1.0,
 			},
 			filterEnvelope: {
-				attack: 0.001,
+				attack: 1.0,
 				decay: 0.7,
 				sustain: 0.1,
 				release: 0.8,
 				baseFrequency: 300,
 				octaves: 4
-			}
+			},
 		}).toDestination();
+
+//Volume__________________________________________________
+
+    function Volume() {
+      synth.volume = 0;
+      alert('Linked');
+
+    }
+
+// Keyboard____________________________________________
 
 var notes = ['C','D','E','F','G','A','B'];
 var html = "";
@@ -61,14 +74,17 @@ document.getElementById('container').innerHTML = html;
 
 function noteDown(elem, isSharp) {
   var note = elem.dataset.note;
-  //alert(note);
+
 
   synth.triggerAttackRelease(note, "4n");
 
   event.stopPropagation()
 }
 
- var dial = new Nexus.Dial('#dial-filterCut')
+// Controls___________________________________________
+
+ var dial = new Nexus.Dial('#dial-volume')
+
  dial.value = 0.5
  dial.colorize("accent","white")
  dial.colorize("fill","#333")
