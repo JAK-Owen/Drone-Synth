@@ -83,9 +83,16 @@ function noteDown(elem, isSharp) {
 
 // Controls___________________________________________
 
- var dial = new Nexus.Dial('#dial-volume')
+var dial = new Nexus.Dial('#dial-volume',{
+  'size': [75,75],
+  'interaction': 'vertical',
+  'mode': 'absolute', 
+  'min': 0,
+  'max': 1,
+  'step': 0,
+  'value': 0.5
+})
 
- dial.value = 0.5
  dial.colorize("accent","white")
  dial.colorize("fill","#333")
  document.body.style.backgroundColor = "#000"
