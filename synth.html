@@ -4,12 +4,14 @@
 <head>
 </head>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
+<script src= 'https://cdn.jsdelivr.net/npm/nexusui@latest/dist/NexusUI.js'></script>
 <link rel="stylesheet" href="styleSheet.css">
 
 
 <body>
-<div id='container'>
-</div>
+<div id='container'></div>
+
+ <div id="dial-filterCut"></div>
 
 <script>
 
@@ -36,10 +38,6 @@ const synth = new Tone.PolySynth(Tone.MonoSynth, {
 
 var notes = ['C','D','E','F','G','A','B'];
 var html = "";
-
-
-
-
 
 for (var octave = -2; octave < 0; octave++)
 {
@@ -69,6 +67,13 @@ function noteDown(elem, isSharp) {
 
   event.stopPropagation()
 }
+
+ var dial = new Nexus.Dial('#dial-filterCut')
+ dial.value = 0.5
+ dial.colorize("accent","white")
+ dial.colorize("fill","#333")
+ document.body.style.backgroundColor = "#000"
+
 </script>
 
 </body>
