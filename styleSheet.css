@@ -47,3 +47,12 @@ body {
   left: 100px;
 
 }
+
+.wave-selector {
+
+ position: absolute;
+ top: 150px;
+ color: white;
+
+
+}
