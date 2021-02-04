@@ -1,6 +1,8 @@
 body {
   background-color: black;
 
+
+
 }
 
 
@@ -12,6 +14,7 @@ body {
   top:calc(80% - 100px);
   left:calc(75% - 350px);
   overflow:hidden;
+
 }
 .whitenote {
   height:20%;
@@ -42,7 +45,7 @@ body {
  position: absolute;
  color: white;
  padding: 10px;
- 
+
 
 }
 

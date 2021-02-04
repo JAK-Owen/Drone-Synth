@@ -44,28 +44,25 @@
 
  const filter = new Tone.Filter(350, "lowpass").toDestination();
 
-
-
-const synth = new Tone.PolySynth(Tone.MonoSynth, {
-			volume: -8,
-			oscillator: {
-				type: "sawtooth"
+const synth = new Tone.MonoSynth({
+			"volume": -8,
+			"oscillator": {
+				"type": "sine"
 			},
-			envelope: {
-				attack: 1.0,
-				decay: 1.0,
-				sustain: 1.0,
-				release: 1.0,
+			"envelope": {
+				"attack": 1.0,
+				"decay": 1.0,
+				"sustain": 1.0,
+				"release": 1.0,
 			},
-			filterEnvelope: {
-				attack: 1.0,
-				decay: 0.7,
-				sustain: 0.1,
-				release: 0.8,
-				baseFrequency: 300,
-				octaves: 4
-			},
-		});
+			"filterEnvelope": {
+				"attack": 1.0,
+				"decay": 0.7,
+				"sustain": 0.1,
+				"release": 0.8,
+				"baseFrequency": 300,
+				"octaves": 4
+			}});
 
     synth.fan(volume);
 
@@ -139,24 +136,21 @@ const filterCut = new Nexus.Dial("#filterCut",{
  filterCut.on('change',function(v) {
 	filter.frequency.rampTo(v,.1)
 });
-filterCut.min = -30;
+filterCut.min = -20;
 filterCut.max = 350;
-filterCut.value = 350;
+filterCut.value = 0;
 filterCut.colorize("accent","white")
 filterCut.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
 
 
 
-
-
- var waveSelect = 'sawtooth';
-
-
-
   function onWaveSelection(wave) {
-   synth.options.oscillator["type"] = wave
+   synth.oscillator.type = wave;
   }
+
+
+
 
 
 </script>
