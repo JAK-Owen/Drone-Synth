@@ -29,9 +29,9 @@
 </div>
 
 
-<div id="gain"><div>
+<div id="gain">Volume<div>
 
-<div id="filterCut"><div>
+<div id="filterCut">LPF<div>
 
 </div>
 
@@ -141,7 +141,7 @@ const filterCut = new Nexus.Dial("#filterCut",{
 });
 filterCut.min = -30;
 filterCut.max = 350;
-filterCut.value = 0;
+filterCut.value = 350;
 filterCut.colorize("accent","white")
 filterCut.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"

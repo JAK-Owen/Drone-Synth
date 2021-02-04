@@ -34,17 +34,25 @@ body {
 
 .controls {
 
-  display: grid;
+
 
 }
 
 #gain {
  position: absolute;
+ color: white;
+ padding: 10px;
+ 
+
 }
 
 #filterCut {
   position: absolute;
   left: 100px;
+  color: white;
+  padding: 10px;
+  bottom: 0px;
+
 
 }
 
