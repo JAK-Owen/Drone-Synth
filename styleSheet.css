@@ -32,7 +32,18 @@ body {
 
 }
 
-#dial-filterCut {
-  color: black;
+.controls {
+
+  display: grid;
+
+}
+
+#gain {
+ position: absolute;
+}
+
+#filterCut {
+  position: absolute;
+  left: 100px;
 
 }
