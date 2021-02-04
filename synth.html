@@ -13,16 +13,16 @@
 
 <div class= 'controls'>
 <div class= 'wave-selector'>
-  <input type="radio" id="wave-type" name="wave" value="sine">
+  <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sine">
   <label for="sine">Sine</label>
   <br>
-  <input type="radio" id="wave-type" name="wave" value="triangle">
+  <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="triangle">
   <label for="triangle">Triangle</label>
   <br>
-  <input type="radio" id="wave-type" name="wave" value="square">
+  <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="square">
   <label for="square">Square</label>
   <br>
-  <input type="radio" id="wave-type" name="wave" value="sawtooth">
+  <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sawtooth">
   <label for="sawtooth">Saw</label>
   <br>
 
@@ -43,6 +43,7 @@
  const volume = new Tone.Volume(-Infinity).toDestination();
 
  const filter = new Tone.Filter(350, "lowpass").toDestination();
+
 
 
 const synth = new Tone.PolySynth(Tone.MonoSynth, {
@@ -69,6 +70,8 @@ const synth = new Tone.PolySynth(Tone.MonoSynth, {
     synth.fan(volume);
 
     volume.connect(filter);
+
+
 
 
 // Keyboard____________________________________________
@@ -147,9 +150,15 @@ document.body.style.backgroundColor = "#000"
 
 
 
+var waveSelect = 'sawtooth';
 
 
 
+  function onWaveSelection(wave) {
+   synth.options.oscillator["type"] = wave
+
+
+  }
 
 
 </script>
