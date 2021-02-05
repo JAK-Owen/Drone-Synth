@@ -35,6 +35,10 @@
 
 <div id="HPFilter">HPF<div>
 
+<div id="ampEnv">Amp<div>
+
+
+
 </div>
 
 
@@ -47,6 +51,8 @@
  const LPfilter = new Tone.Filter(550, "lowpass").connect(volume);
 
  const HPfilter = new Tone.Filter(550, "highpass").connect(LPfilter);
+
+
 
 const synth = new Tone.MonoSynth({
 			"volume": -8,
@@ -70,7 +76,7 @@ const synth = new Tone.MonoSynth({
 
     synth.connect(HPfilter);
 
-
+    
 
 
 
@@ -171,7 +177,35 @@ document.body.style.backgroundColor = "#000"
   }
 
 
+  const ampEnv = new Nexus.Envelope('#ampEnv',{
+   'size': [200, 100],
+   'noNewPoints': false,
+   'points': [
+     {
+       x: 0.1,
+       y: 0.4
+     },
+     {
+       x: 0.35,
+       y: 0.6
+     },
+     {
+       x: 0.65,
+       y: 0.2
+     },
+     {
+       x: 0.9,
+       y: 0.4
+     },
+   ]
+ })
 
+ ampEnv.on('change',function(v) {
+   console.log(v);
+ })
+ ampEnv.colorize("accent","white")
+ ampEnv.colorize("fill","#333")
+ document.body.style.backgroundColor = "#000"
 
 
 </script>

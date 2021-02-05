@@ -67,6 +67,14 @@ body {
 
 }
 
+#ampEnv {
+  position: absolute;
+  padding: 10px;
+  top: 120px;
+  left: -50px;
+
+}
+
 .wave-selector {
 
  position: absolute;
