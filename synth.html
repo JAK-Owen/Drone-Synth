@@ -31,7 +31,9 @@
 
 <div id="gain">Volume<div>
 
-<div id="filterCut">LPF<div>
+<div id="LPFilter">LPF<div>
+
+<div id="HPFilter">HPF<div>
 
 </div>
 
@@ -42,7 +44,9 @@
 
  const volume = new Tone.Volume(-Infinity).toDestination();
 
- const filter = new Tone.Filter(550, "lowpass").connect(volume);
+ const LPfilter = new Tone.Filter(550, "lowpass").connect(volume);
+
+ const HPfilter = new Tone.Filter(550, "highpass").connect(LPfilter);
 
 const synth = new Tone.MonoSynth({
 			"volume": -8,
@@ -64,7 +68,7 @@ const synth = new Tone.MonoSynth({
 				"octaves": 4
 			}});
 
-    synth.connect(filter);
+    synth.connect(HPfilter);
 
 
 
@@ -127,20 +131,37 @@ document.body.style.backgroundColor = "#000"
 
 
 
-const filterCut = new Nexus.Dial("#filterCut",{
+const LPFilter = new Nexus.Dial("#LPFilter",{
 
   'size': [75,75],
   'interaction': 'vertical',
   'mode': 'relative',
 })
- filterCut.on('change',function(v) {
-	filter.frequency.rampTo(v,.1)
+ LPFilter.on('change',function(v) {
+	LPfilter.frequency.rampTo(v,.1)
 });
-filterCut.min = 20;
-filterCut.max = 550;
-filterCut.value = 550;
-filterCut.colorize("accent","white")
-filterCut.colorize("fill","#333")
+LPFilter.min = 20;
+LPFilter.max = 550;
+LPFilter.value = 550;
+LPFilter.colorize("accent","white")
+LPFilter.colorize("fill","#333")
+document.body.style.backgroundColor = "#000"
+
+
+const HPFilter = new Nexus.Dial("#HPFilter",{
+
+  'size': [75,75],
+  'interaction': 'vertical',
+  'mode': 'relative',
+})
+ HPFilter.on('change',function(v) {
+	HPfilter.frequency.rampTo(v,.1)
+});
+HPFilter.min = 20;
+HPFilter.max = 650;
+HPFilter.value = 20;
+HPFilter.colorize("accent","white")
+HPFilter.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
 
 

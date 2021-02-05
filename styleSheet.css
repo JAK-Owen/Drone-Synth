@@ -49,13 +49,21 @@ body {
 
 }
 
-#filterCut {
+#LPFilter {
   position: absolute;
   left: 100px;
   color: white;
   padding: 10px;
   bottom: 0px;
 
+}
+
+#HPFilter {
+  position: absolute;
+  left: 100px;
+  color: white;
+  padding: 10px;
+  bottom: 0px;
 
 }
 
