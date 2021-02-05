@@ -71,7 +71,16 @@ body {
   position: absolute;
   padding: 10px;
   top: 120px;
-  left: -50px;
+  left: -60px;
+
+}
+
+#oscilloscope {
+
+  position: absolute;
+  padding: 10px;
+  top: 120px;
+  right: 200px;
 
 }
 

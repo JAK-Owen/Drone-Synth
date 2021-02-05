@@ -37,6 +37,8 @@
 
 <div id="ampEnv">Amp<div>
 
+<div id="oscilloscope"><div>
+
 
 
 </div>
@@ -76,7 +78,7 @@ const synth = new Tone.MonoSynth({
 
     synth.connect(HPfilter);
 
-    
+
 
 
 
@@ -206,6 +208,18 @@ document.body.style.backgroundColor = "#000"
  ampEnv.colorize("accent","white")
  ampEnv.colorize("fill","#333")
  document.body.style.backgroundColor = "#000"
+
+
+  const oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
+  'size': [150,100]
+})
+oscilloscope.colorize("accent","white")
+oscilloscope.colorize("fill","#333")
+document.body.style.backgroundColor = "#000"
+
+oscilloscope.connect(myWebAudioNode)
+
+
 
 
 </script>
