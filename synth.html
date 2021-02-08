@@ -83,6 +83,8 @@ const synth = new Tone.MonoSynth({
 
 
 
+
+
 // Keyboard____________________________________________
 
 var notes = ['C','D','E','F','G','A','B'];
@@ -110,12 +112,20 @@ document.getElementById('container').innerHTML = html;
 
 function noteDown(elem, isSharp) {
   var note = elem.dataset.note;
+    synth.triggerAttack(note);
+      event.stopPropagation()
 
-
-  synth.triggerAttackRelease(note, "4n");
-
-  event.stopPropagation()
 }
+
+ function noteUp(elem, isSharp) {
+   var note = elem.dataset.note;
+     synth.triggerRelease(note);
+       event.stopPropagation()
+}
+
+
+
+
 
 // Controls___________________________________________
 

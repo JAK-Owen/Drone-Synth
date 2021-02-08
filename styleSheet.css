@@ -92,3 +92,10 @@ body {
 
 
 }
+
+#piano {
+
+ position: absolute;
+ top: 400px;
+
+}
