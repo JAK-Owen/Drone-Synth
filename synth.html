@@ -25,29 +25,30 @@
   <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sawtooth">
   <label for="sawtooth">Saw</label>
   <br>
-
+</div>
 </div>
 
+<div id=dials-container>
+  <div id="gain">Volume</div>
 
-<div id="gain">Volume<div>
+  <div id="LPFilter">LPF</div>
 
-<div id="LPFilter">LPF<div>
+  <div id="HPFilter">HPF</div>
 
-<div id="HPFilter">HPF<div>
+  <div id="verb">Reverb</div>
 
-<div id="verb">Reverb<div>
-
-<div id="FBDelay">Delay<div>
-
-<div id="ampEnv">Amp<div>
-
-<div id="oscilloscope"><div>
-
-
-
-
-
+  <div id="FBDelay">Delay</div>
 </div>
+
+<!-- <div id="ampEnv">Amp</div> -->
+
+<div id="oscilloscope"></div>
+
+
+
+
+
+
 
 
 <script>
@@ -199,45 +200,45 @@ document.body.style.backgroundColor = "#000"
 
   function onWaveSelection(wave) {
    synth.oscillator.type = wave;
-  }
+ };
 
-
-  const ampEnv = new Nexus.Envelope('#ampEnv',{
-   'size': [200, 100],
-   'noNewPoints': false,
-   'points': [
-     {
-       x: 0.1,
-       y: 0.4
-     },
-     {
-       x: 0.35,
-       y: 0.6
-     },
-     {
-       x: 0.65,
-       y: 0.2
-     },
-     {
-       x: 0.9,
-       y: 0.4
-     },
-   ]
- })
-
- ampEnv.on('change',function(v) {
-   console.log(v);
- })
- ampEnv.colorize("accent","white")
- ampEnv.colorize("fill","#333")
- document.body.style.backgroundColor = "#000"
+ //
+ //  const ampEnv = new Nexus.Envelope('#ampEnv',{
+ //   'size': [200, 100],
+ //   'noNewPoints': false,
+ //   'points': [
+ //     {
+ //       x: 0.1,
+ //       y: 0.4
+ //     },
+ //     {
+ //       x: 0.35,
+ //       y: 0.6
+ //     },
+ //     {
+ //       x: 0.65,
+ //       y: 0.2
+ //     },
+ //     {
+ //       x: 0.9,
+ //       y: 0.4
+ //     },
+ //   ]
+ // })
+ //
+ // ampEnv.on('change',function(v) {
+ //   console.log(v);
+ // })
+ // ampEnv.colorize("accent","white")
+ // ampEnv.colorize("fill","#333")
+ // document.body.style.backgroundColor = "#000"
 
 
   const oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
-  'size': [150,100]
+  'size': [250,200]
 })
 oscilloscope.colorize("accent","white")
-oscilloscope.colorize("fill","#333")
+oscilloscope.colorize("fill","black")
 document.body.style.backgroundColor = "#000"
 
 oscilloscope.connect(volume)

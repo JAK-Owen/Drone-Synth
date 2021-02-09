@@ -12,7 +12,7 @@ body {
   width: auto;
   border:10px solid black;
   top:calc(80% - 100px);
-  left:calc(75% - 350px);
+  left:calc(50% - 200px);
   overflow:hidden;
 
 }
@@ -41,64 +41,84 @@ body {
 
 }
 
+#dials-container{
+
+
+}
+
 #gain {
  position: absolute;
  color: white;
  padding: 10px;
+ left:calc(50% - 200px);
 
 
 }
 
 #LPFilter {
-  position: absolute;
+  position: relative;
   left: 100px;
   color: white;
   padding: 10px;
-  bottom: 0px;
+  left:calc(50% - 100px);
+
 
 }
 
 #HPFilter {
-  position: absolute;
-  left: 100px;
+  position: relative;
+  left: 200px;
   color: white;
   padding: 10px;
-  bottom: 0px;
+  top: -95px;
+  left:calc(50% - 0px);
+
 
 }
 
 #verb {
-  position: absolute;
-  left: 100px;
+  position: relative;
+  left: 300px;
   color: white;
   padding: 10px;
-  bottom: 0px;
+  top: -190px;
+  left:calc(50% - -100px);
+
 
 }
 
 #FBDelay {
-  position: absolute;
-  left: 100px;
+  position: relative;
+  left: 400px;
   color: white;
   padding: 10px;
-  bottom: 0px;
+  top: -285px;
+  left:calc(50% - -200px);
+
 
 }
 
 #ampEnv {
-  position: absolute;
+  position: relative;
   padding: 10px;
-  top: 120px;
-  left: -60px;
+  top: -250px;
+  left: 250px;
 
 }
 
+
+
 #oscilloscope {
 
-  position: absolute;
+  position: relative;
   padding: 10px;
-  top: 120px;
-  right: 200px;
+  top:calc(80% - 100px);
+  left:calc(50% - 200px);
+  top: -100px;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+
 
 }
 
@@ -107,6 +127,7 @@ body {
  position: absolute;
  top: 150px;
  color: white;
+ left:calc(50% - 200px);
 
 
 }
