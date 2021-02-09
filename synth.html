@@ -35,9 +35,13 @@
 
 <div id="HPFilter">HPF<div>
 
+<div id="verb">Reverb<div>
+
 <div id="ampEnv">Amp<div>
 
 <div id="oscilloscope"><div>
+
+
 
 
 
@@ -50,7 +54,9 @@
 
  const volume = new Tone.Volume(-Infinity).toDestination();
 
- const LPfilter = new Tone.Filter(550, "lowpass").connect(volume);
+ const reverb = new Tone.Reverb(100,  "verb").connect(volume);
+
+ const LPfilter = new Tone.Filter(550, "lowpass").connect(reverb);
 
  const HPfilter = new Tone.Filter(550, "highpass").connect(LPfilter);
 
@@ -184,6 +190,9 @@ document.body.style.backgroundColor = "#000"
 
 
 
+
+
+
   function onWaveSelection(wave) {
    synth.oscillator.type = wave;
   }
@@ -228,6 +237,23 @@ oscilloscope.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
 
 oscilloscope.connect(volume)
+
+
+const verb = new Nexus.Dial("#verb",{
+
+  'size': [75,75],
+  'interaction': 'vertical',
+  'mode': 'relative',
+})
+ verb.on('change',function(v) {
+	reverb.wet.rampTo(v,.1)
+});
+verb.min = 0;
+verb.max = 1;
+verb.value = 0;
+verb.colorize("accent","white")
+verb.colorize("fill","#333")
+document.body.style.backgroundColor = "#000"
 
 
 

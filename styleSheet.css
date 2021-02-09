@@ -67,6 +67,15 @@ body {
 
 }
 
+#verb {
+  position: absolute;
+  left: 100px;
+  color: white;
+  padding: 10px;
+  bottom: 0px;
+
+}
+
 #ampEnv {
   position: absolute;
   padding: 10px;
@@ -90,12 +99,5 @@ body {
  top: 150px;
  color: white;
 
-
-}
-
-#piano {
-
- position: absolute;
- top: 400px;
 
 }
