@@ -55,19 +55,24 @@
 
  // Synth_________________________________________
 
+
+
  const volume = new Tone.Volume(-Infinity).toDestination();
 
- const reverb = new Tone.Reverb(100,  "verb").connect(volume);
-
- const delay = new Tone.FeedbackDelay("8.", 0.8, "FBDelay").connect(reverb);
-
- const LPfilter = new Tone.Filter(550, "lowpass").connect(delay);
+ const LPfilter = new Tone.Filter(550, "lowpass").connect(volume);
 
  const HPfilter = new Tone.Filter(550, "highpass").connect(LPfilter);
+
+ const reverb = new Tone.Reverb(100,  "verb").connect(HPfilter);
+
+ const delay = new Tone.FeedbackDelay("8.", 1, "FBDelay").connect(reverb);
+
 
 
 
 const synth = new Tone.MonoSynth({
+
+
 			"volume": -8,
 			"oscillator": {
 				"type": "sine"
@@ -87,7 +92,8 @@ const synth = new Tone.MonoSynth({
 				"octaves": 4
 			}});
 
-    synth.connect(HPfilter);
+    synth.connect(delay);
+
 
 
 
