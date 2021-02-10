@@ -5,6 +5,7 @@
 </head>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
 <script src= 'https://cdn.jsdelivr.net/npm/nexusui@latest/dist/NexusUI.js'></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 <link rel="stylesheet" href="styleSheet.css">
 
 
@@ -14,16 +15,16 @@
 <div class= 'controls'>
 <div class= 'wave-selector'>
   <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sine">
-  <label for="sine">Sine</label>
+  <label for="sine"><span class="iconify" data-icon="mdi-sine-wave" data-inline="false"></span></label>
   <br>
   <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="triangle">
-  <label for="triangle">Triangle</label>
+  <label for="triangle"><span class="iconify" data-icon="mdi:triangle-wave" data-inline="false"></span></label>
   <br>
   <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="square">
-  <label for="square">Square</label>
+  <label for="square"><span class="iconify" data-icon="mdi:square-wave" data-inline="false"></span></label>
   <br>
   <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sawtooth">
-  <label for="sawtooth">Saw</label>
+  <label for="sawtooth"><span class="iconify" data-icon="mdi:sawtooth-wave" data-inline="false"></span></label>
   <br>
 </div>
 </div>

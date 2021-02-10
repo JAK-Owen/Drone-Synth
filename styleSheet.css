@@ -120,6 +120,7 @@ body {
   border-color: white;
 
 
+
 }
 
 .wave-selector {
@@ -127,6 +128,7 @@ body {
  position: absolute;
  top: 150px;
  color: white;
+ filter: grayscale(1);
  left:calc(50% - 200px);
 
 
