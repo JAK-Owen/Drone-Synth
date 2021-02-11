@@ -48,7 +48,7 @@
 
 <div id="oscilloscope"></div>
 
-
+<!-- <button onclick("Stop()")> STOP</button> -->
 
 
 
@@ -56,6 +56,10 @@
 
 
 <script>
+
+// Transport
+
+
 
  // Synth_________________________________________
 
@@ -82,13 +86,13 @@ const synth = new Tone.MonoSynth({
 				"type": "sine"
 			},
 			"envelope": {
-				"attack": 0.0,
+				"attack": 1.0,
 				"decay": 1.0,
 				"sustain": 1.0,
 				"release": 1.0,
 			},
 			"filterEnvelope": {
-				"attack": 0.0,
+				"attack": 1.0,
 				"decay": 0.7,
 				"sustain": 0.1,
 				"release": 0.8,
@@ -134,18 +138,30 @@ document.getElementById('container').innerHTML = html;
 function noteDown(elem, isSharp) {
   var note = elem.dataset.note;
     synth.triggerAttack(note);
+    Tone.start();
       event.stopPropagation()
 
 }
 
- function noteUp(elem, isSharp) {
-   var note = elem.dataset.note;
-     synth.triggerRelease(note);
-       event.stopPropagation()
+//  function noteUp(elem, isSharp) {
+//    var note = elem.dataset.note;
+//      synth.triggerRelease(note);
+//        event.stopPropagation()
+// }
+
+
+const loop = new Tone.Loop((time) => {
+	// synth.triggerAttackRelease(note);
+	console.log(time);
+}, "1n").start(0);
+Tone.Transport.start();
+
+Tone.Transport.bpm.value = 130;
+
+function Stop(){
+  Tone.Transport.stop();
+
 }
-
-
-
 
 
 // Controls___________________________________________
@@ -204,44 +220,9 @@ HPFilter.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
 
 
-
-
-
-
   function onWaveSelection(wave) {
    synth.oscillator.type = wave;
  };
-
- //
- //  const ampEnv = new Nexus.Envelope('#ampEnv',{
- //   'size': [200, 100],
- //   'noNewPoints': false,
- //   'points': [
- //     {
- //       x: 0.1,
- //       y: 0.4
- //     },
- //     {
- //       x: 0.35,
- //       y: 0.6
- //     },
- //     {
- //       x: 0.65,
- //       y: 0.2
- //     },
- //     {
- //       x: 0.9,
- //       y: 0.4
- //     },
- //   ]
- // })
- //
- // ampEnv.on('change',function(v) {
- //   console.log(v);
- // })
- // ampEnv.colorize("accent","white")
- // ampEnv.colorize("fill","#333")
- // document.body.style.backgroundColor = "#000"
 
 
   const oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
@@ -265,7 +246,7 @@ const verb = new Nexus.Dial("#verb",{
 });
 verb.min = 0;
 verb.max = 1;
-verb.value = 0;
+verb.value = 0.3;
 verb.colorize("accent","white")
 verb.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
@@ -282,7 +263,7 @@ const FBDelay = new Nexus.Dial("#FBDelay",{
 });
 FBDelay.min = 0;
 FBDelay.max = 1;
-FBDelay.value = 0;
+FBDelay.value = 0.3;
 FBDelay.colorize("accent","white")
 FBDelay.colorize("fill","#333")
 document.body.style.backgroundColor = "#000"
