@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.6/Tone.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/nexusui@latest/dist/NexusUI.js'></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<link rel="stylesheet" href="styleSheet.css">
+
+<body>
+
+  <div class="main-container">
+
+    <img id='background-img' src=''></img>
+
+    <div class='controls'>
+      <div class='wave-selector'>
+        <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sine">
+        <label for="sine"><span class="iconify" data-icon="mdi-sine-wave" data-inline="false"></span></label>
+        <br>
+        <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="triangle">
+        <label for="triangle"><span class="iconify" data-icon="mdi:triangle-wave" data-inline="false"></span></label>
+        <br>
+        <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="square">
+        <label for="square"><span class="iconify" data-icon="mdi:square-wave" data-inline="false"></span></label>
+        <br>
+        <input onclick='onWaveSelection(this.value)' type="radio" id="wave-type" name="wave" value="sawtooth">
+        <label for="sawtooth"><span class="iconify" data-icon="mdi:sawtooth-wave" data-inline="false"></span></label>
+        <br>
+      </div>
+    </div>
+
+    <div id=dials-container>
+      <div id="gain"><span class="iconify" data-icon="clarity:volume-down-line" data-inline="false"></span></div>
+
+      <div id="LPFilter"><span class="iconify" data-icon="ph:arrow-bend-up-left-thin" data-inline="false"></span></div>
+
+      <div id="HPFilter"><span class="iconify" data-icon="ph:arrow-bend-up-right-thin" data-inline="false"></span></div>
+
+      <div id="verb"><span class="iconify" data-icon="mdi:waveform" data-inline="false"></span></div>
+
+      <div id="FBDelay"><span class="iconify" data-icon="carbon:edt-loop" data-inline="false"></span></div>
+    </div>
+    <!--   <div id="oscilloscope"></div> -->
+
+    <div id='container'></div>
+
+  </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
